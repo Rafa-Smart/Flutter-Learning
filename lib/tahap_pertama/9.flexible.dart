@@ -31,63 +31,58 @@ class MyApp extends StatelessWidget {
            )
         ),
         body: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 176, 80, 141),
-            ),
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Column(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              margin: EdgeInsets.all(5),
-                              color: Colors.red,
-                            ),
-                          ),
-                          Flexible(
-                            flex: 2,
-                            child: Container(
-                              margin: EdgeInsets.all(5),
-                              color: Colors.green,
-                            ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: Container(
-                              margin: EdgeInsets.all(5),
-                              color: Colors.red,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Flexible(
-                      flex: 3,
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        color: const Color.fromARGB(255, 59, 13, 156),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Container(
-                        margin: EdgeInsets.all(5),
-                        color: Colors.red,
-                      ),
-                    )
-                  ],
-                ),
+          child: Center(
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 3, 155, 186),
               ),
-            )
+              child: Column(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Row(
+                      children: [
+                        Flexible(
+                          flex: 1,
+                          child: Container(
+                            margin: EdgeInsets.all(5),
+                            color: Colors.red,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          child: Container(
+                            margin: EdgeInsets.all(5),
+                            color: Colors.green,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 1,
+                          child: Container(
+                            margin: EdgeInsets.all(5),
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    flex: 3,
+                    child: Container(
+                      margin: EdgeInsets.all(5),
+                      color: const Color.fromARGB(255, 59, 13, 156),
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.all(5),
+                      color: Colors.red,
+                    ),
+                  )
+                ],
+              ),
+            ),
           )
         )
       )
