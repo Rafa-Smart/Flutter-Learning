@@ -1,6 +1,8 @@
 // ListView adalah widget scrollable untuk menampilkan data dalam bentuk list
 // (daftar) secara vertikal (default) atau horizontal.
 
+// https://chatgpt.com/c/6885d940-b864-8009-8713-482bd923c8d3
+
 // Setiap item di dalam ListView biasanya berasal dari sebuah List data.
 
 // Jika menggunakan ListView.builder:
