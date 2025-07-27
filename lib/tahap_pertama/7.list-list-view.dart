@@ -13,7 +13,12 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // Ini adalah daftar data yang ingin ditampilkan
   final List<String> dataList = [
     "Apel",
@@ -41,24 +46,132 @@ class MyApp extends StatelessWidget {
     "Kedondong",
   ];
 
+  List<Widget> widgets = [];
+
+  // nah disini kita buat perluangannya ketika si class ini di panggil
+  // jadi kan kalo class ini dipanggil maka fngisyang akan dijalankan
+  // itu adalh construcornya, maka kita bisa membuat widget disini
+
+  // _MyAppState() {
+  //   for (var i = 0; i < 20; i++) {
+  //     widgets.add(
+  //       Text(
+  //         "halo ${i + 1}".toString(),
+  //         style: TextStyle(
+  //           fontSize: 20,
+  //           fontWeight: FontWeight.bold,
+  //           color: Colors.blue,
+  //         ),
+  //       ),
+  //     );
+  //   }
+  // }
+
+  // disini ktia manual aja
+
+  void tambahData() {
+    setState(() {
+      widgets.add(
+        Text(
+          "Data Baru ${widgets.length + 1}",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.blue,
+          ),
+        ),
+      );
+    });
+  }
+
+  void kurangData() {
+    if (widgets.isNotEmpty) {
+      setState(() {
+        widgets.removeLast();
+      });
+    }
+  }
+
   @override
+  // ini list view biasa
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Contoh ListView")),
+        body: ListView(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red, // Warna tombol
+                      foregroundColor: Colors.white, // Warna teks tombol
+                    ),
+                    onPressed: tambahData,
+                    child: Text("tambah data"),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red, // Warna tombol
+                      foregroundColor: Colors.white, // Warna teks tombol
+                    ),
+                    onPressed: kurangData,
+                    child: Text("kurang data"),
+                  ),
+                ),
+              ],
+            ),
+
+            // nah disini kita spread, inget, karena kalo langsn kita tambahkan
+            // maka nanti malah jadi array of array
+            // ...widgets,
+
+            // atau kalo kita igni buat lagi pake column
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: widgets,
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
+
   // Widget build(BuildContext context) {
   //   return MaterialApp(
   //     home: Scaffold(
   //       appBar: AppBar(title: Text("Contoh ListView")),
   //       body: ListView.builder(
-  //         itemCount: dataList.length, // jumlah item
+  //         itemCount: dataList.length,
   //         itemBuilder: (context, index) {
-  //           // setiap item ditampilkan dalam Card
   //           return Card(
   //             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+  //             color: const Color.fromARGB(179, 7, 112, 182),
   //             child: ListTile(
-  //               leading: Icon(Icons.local_grocery_store),
-  //               title: Text(dataList[index]), // menampilkan nama buah
+  //               leading: Icon(Icons.local_fire_department_rounded),
+  //               title: Text(
+  //                 dataList[index],
+  //                 style: TextStyle(
+  //                   fontSize: 18,
+  //                   fontWeight: FontWeight.bold,
+  //                   color: Colors.white,
+  //                 ),
+  //               ), // menampilkan nama buah
   //               onTap: () {
-  //                 // aksi ketika ditekan
   //                 print("Anda memilih: ${dataList[index]}");
   //               },
+  //               subtitle: Text(
+  //                 "Ini adalah buah ${dataList[index]}",
+  //                 style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 107, 1, 1)),
+  //               ),
   //             ),
   //           );
   //         },
@@ -66,40 +179,6 @@ class MyApp extends StatelessWidget {
   //     ),
   //   );
   // }
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("Contoh ListView")),
-        body: ListView.builder(
-          itemCount: dataList.length,
-          itemBuilder: (context, index) {
-            return Card(
-              margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              color: const Color.fromARGB(179, 7, 112, 182),
-              child: ListTile(
-                leading: Icon(Icons.local_fire_department_rounded),
-                title: Text(
-                  dataList[index],
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ), // menampilkan nama buah
-                onTap: () {
-                  print("Anda memilih: ${dataList[index]}");
-                },
-                subtitle: Text(
-                  "Ini adalah buah ${dataList[index]}",
-                  style: TextStyle(fontSize: 14, color: const Color.fromARGB(255, 107, 1, 1)),
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
 }
 
 
