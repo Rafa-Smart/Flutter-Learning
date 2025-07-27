@@ -1,5 +1,21 @@
 
 
+// jadi Widget build(Context context) {}
+// ini akna dijalankan oleh si fungsi StatelessElement(this) yang ada di
+// fungsi bawaan dari StatelessWidget
+// yaitu createElement()
+
+// class StatelessElement extends ComponentElement {
+//   ...
+//   @override
+//   Widget build() => widget.build(this);
+// }
+
+// nah lihat, dia menjalankan widget.build(this);
+// berati yang menjalanakn build itu adalah widget yang ada di StatelessElement
+
+
+
 // https://chatgpt.com/c/688591a7-2a4c-8009-8adc-0dd11224fe9d
 
 // 1.

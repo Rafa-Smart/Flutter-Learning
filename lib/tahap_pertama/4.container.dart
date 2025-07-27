@@ -11,9 +11,19 @@ class myApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text("Ini adalah AppBar")),
         body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[
+                Colors.indigo,
+                const Color.fromARGB(255, 233, 30, 99),
+                const Color.fromARGB(255, 40, 134, 52),
+              ],
+            ),
+          ),
           width: 500.0,
           height: 800.0,
-          color: const Color.fromARGB(255, 151, 209, 132),
           margin: EdgeInsets.all(10.0),
           padding: EdgeInsets.all(10.0),
           child: Column(
@@ -26,7 +36,16 @@ class myApp extends StatelessWidget {
                 padding: EdgeInsets.all(10.0),
                 
                 decoration: BoxDecoration(
-                  boxShadow: [ // but box shadow
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors:<Color>[
+                      const Color.fromARGB(255, 70, 78, 126),
+                      const Color.fromARGB(255, 13, 144, 63),
+                      const Color.fromARGB(255, 134, 40, 40),
+                    ]
+                  ),
+                  boxShadow: [ // buat box shadow
                     BoxShadow(
                       color: Colors.white,
                       offset: Offset(8.0, 8.0),
@@ -75,10 +94,17 @@ class myApp extends StatelessWidget {
   }
 }
 
+// ingat, dalam 1 container itu gaboleh ada 2 
+// deklarasi color
+// misal di contianernya ada color, dan di decoration -> BOxdecoration ada color
+// itu akan error
+
 
 // jadi untuk mendekorasi sebuah containre
 // kita memerlukan paramter decoration
 // nah decoration ini adalah sebuah objek BoxDecoration
+// yang isinya itu bisa gradient, ata shadow box
+
 
 // untuk dekorasi pada text, kita memerlukan style yang
 // merupakan objek TextStyle
