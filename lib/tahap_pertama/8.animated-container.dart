@@ -46,62 +46,69 @@ class _StateFulNya extends State<MyStateFulWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AnimatedContainer(
-            duration: Duration(seconds: 1),
-            curve: Curves.easeInOut,
-            // jadi kita bisa ubah ukuran lebar dan tinggi
-            // jadi kalo nextint itu maksdunaya adalah yang terakhir
-            // ga akan diambil, jadi kalo 100 berati hanya 99
-            width:
-                80 + random.nextInt(101).toDouble(), // lebar acak antara 80 dan 150
-            height:
-                80 + random.nextInt(101).toDouble(), // tinggi acak antara 80 dan 150
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color.fromARGB(
-                    255,
-                    random.nextInt(156),
-                    random.nextInt(156),
-                    random.nextInt(156),
-                  ),
-                  Color.fromARGB(
-                    255,
-                    random.nextInt(256),
-                    random.nextInt(256),
-                    random.nextInt(256),
-                  ),
-                  Color.fromARGB(
-                    255,
-                    random.nextInt(256),
-                    random.nextInt(256),
-                    random.nextInt(256),
-                  ),
-                ],
+          GestureDetector(
+            onDoubleTap: () => setState(() {
+              // ketika di double tap, akan mengubah ukuran dan warna
+            }),
+            child: AnimatedContainer(
+              duration: Duration(seconds: 1),
+              curve: Curves.easeInOut,
+              // jadi kita bisa ubah ukuran lebar dan tinggi
+              // jadi kalo nextint itu maksdunaya adalah yang terakhir
+              // ga akan diambil, jadi kalo 100 berati hanya 99
+              width:
+                  80 + random.nextInt(101).toDouble(), // lebar acak antara 80 dan 150
+              height:
+                  80 + random.nextInt(101).toDouble(), // tinggi acak antara 80 dan 150
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color.fromARGB(
+                      255,
+                      random.nextInt(156),
+                      random.nextInt(156),
+                      random.nextInt(156),
+                    ),
+                    Color.fromARGB(
+                      255,
+                      random.nextInt(256),
+                      random.nextInt(256),
+                      random.nextInt(256),
+                    ),
+                    Color.fromARGB(
+                      255,
+                      random.nextInt(256),
+                      random.nextInt(256),
+                      random.nextInt(256),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          SizedBox(height: 90), // jarak antar widget
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.white,
-            ),
-            onPressed: (){
-              // ketika ditekan, akan rebuild widget
-              // tpai gausah kita uabh ubah si randomnya
-              // karna sudah otomatis berubah
-              setState(() {});
-            }, 
-            child: Text("Ubah",
-              style: TextStyle(
-                fontSize: 20,
-              )
-            )
-          )
+
+          // bisa pke ini, tapi bisa juga pake gesture
+          // SizedBox(height: 90), // jarak antar widget
+          // ElevatedButton(
+          //   style: ElevatedButton.styleFrom(
+          //     backgroundColor: Colors.black,
+          //     foregroundColor: Colors.white,
+          //   ),
+          //   onPressed: (){
+          //     // ketika ditekan, akan rebuild widget
+          //     // tpai gausah kita uabh ubah si randomnya
+          //     // karna sudah otomatis berubah
+          //     setState(() {});
+          //   }, 
+          //   child: Text("Ubah",
+          //     style: TextStyle(
+          //       fontSize: 20,
+          //     )
+          //   )
+          // )
         ],
       ),
     );
