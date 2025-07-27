@@ -1,4 +1,14 @@
 
+// BuildContext context kalo ini itu fungsinya adaalh untuk menjadikan widget kita 
+// uniq, dan tahu alaatnya, untuk apa kita mnggunakna key ?
+// nah jadi simplenya itu
+// kalo buildcontext itu adalah sebuah objek yang merepresentasikan
+// posisi widget kita di dalam widget tree
+
+// nah kalo key ini itu untuk mengidentifikasi widget kita
+// jadi kalo kita punya widget yang sama, misal Text("halo")
+// nah kita bisa kasih key, supaya dia itu unik
+
 
 // jadi Widget build(Context context) {}
 // ini akna dijalankan oleh si fungsi StatelessElement(this) yang ada di
