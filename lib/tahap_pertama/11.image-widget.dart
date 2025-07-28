@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset(
-                  '../../assets/images/icon-1.png',
+                  'assets/images/icon-1.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.contain, // mengatur cara gambar dimuat
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset(
-                  '../../assets/images/icon-1.png',
+                  'assets/images/icon-1.png',
                   color: Colors.red.withOpacity(0.5),
                   colorBlendMode: BlendMode.darken,
                   width: 100,
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
                 height: 200,
                 color: Colors.blue[50],
                 child: Image.asset(
-                  '../../assets/images/icon-1.png',
+                  'assets/images/icon-1.png',
                   fit: BoxFit.scaleDown,
                   alignment: Alignment.center,
                 ),
