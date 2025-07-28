@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: Text('Demo Gambar di Flutter')),
 
         // Isi utama aplikasi
-        body: SingleChildScrollView(
-          child: Column(
+        body: ListView(
+
             children: [
 
               // Gambar dari assets lokal (harus didaftarkan di pubspec.yaml)
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.network(
-                  'https://flutter.dev/images/flutter-logo-sharing.png',
+                  'https://media.istockphoto.com/id/1443562748/id/foto/kucing-jahe-lucu.jpg?s=612x612&w=0&k=20&c=g--RaRzUgk83osyJGx88ZtoChTk3VzP8n86EQHvc7Ko=',
                   width: 200,
                   height: 100,
                   fit: BoxFit.cover,
@@ -87,7 +87,6 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-      ),
     );
   }
 }
