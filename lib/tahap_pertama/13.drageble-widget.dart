@@ -164,6 +164,10 @@ class _MyAppState extends State<MyAppFulWidget> {
                       color: elemenBuah["warna"],
                       size: 100,
                     ),
+
+                    // jadi material ini untuk mnegatur box
+                    // jadi biasanya ada di sizedbox, lalu material ini utnuk mnegatrunya
+                    // ada bnyak parameter namednya
                     feedback: Material(
                       color: Colors.transparent,
                       child: Icon(
