@@ -9,33 +9,43 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: "/",
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case "/":
-            return MaterialPageRoute(
-              builder: (_) => MyHomePage(),
-              settings: RouteSettings(name: "/"),
-            );
-          case "/halaman-1":
-            return MaterialPageRoute(
-              builder: (_) => Halaman1(),
-              settings: RouteSettings(name: "/halaman-1"),
-            );
-          case "/halaman-2":
-            return MaterialPageRoute(
-              builder: (_) => Halaman2(),
-              settings: RouteSettings(name: "/halaman-2"),
-            );
-          case "/halaman-3":
-            return MaterialPageRoute(
-              builder: (_) => Halaman3(),
-              settings: RouteSettings(name: "/halaman-3"),
-            );
-          default:
-            return null;
-        }
+      routes: {
+        "/": (context) => MyHomePage(),
+        "/halaman-1": (context) => Halaman1(),
+        "/halaman-2": (context) => Halaman2(),
+        "/halaman-3": (context) => Halaman3(),
       },
     );
+
+    // return MaterialApp(
+    //   initialRoute: "/",
+    //   onGenerateRoute: (settings) {
+    //     switch (settings.name) {
+    //       case "/":
+    //         return MaterialPageRoute(
+    //           builder: (_) => MyHomePage(),
+    //           settings: RouteSettings(name: "/"),
+    //         );
+    //       case "/halaman-1":
+    //         return MaterialPageRoute(
+    //           builder: (_) => Halaman1(),
+    //           settings: RouteSettings(name: "/halaman-1"),
+    //         );
+    //       case "/halaman-2":
+    //         return MaterialPageRoute(
+    //           builder: (_) => Halaman2(),
+    //           settings: RouteSettings(name: "/halaman-2"),
+    //         );
+    //       case "/halaman-3":
+    //         return MaterialPageRoute(
+    //           builder: (_) => Halaman3(),
+    //           settings: RouteSettings(name: "/halaman-3"),
+    //         );
+    //       default:
+    //         return null;
+    //     }
+    //   },
+    // );
   }
 }
 
@@ -161,7 +171,7 @@ class Halaman3 extends StatelessWidget {
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              Navigator.popUntil(context, ModalRoute.withName("/halaman-1"));
+              Navigator.popAndPushNamed(context,"/halaman-1");
             },
             child: Text('Kembali ke halaman 1'),
           ),
