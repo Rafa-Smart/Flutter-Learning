@@ -1,6 +1,5 @@
 // https://chatgpt.com/c/6888cd38-400c-8009-bf0e-820c93fcd609
 
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HalamanUtama(),
-    );
+    return MaterialApp(home: HalamanUtama());
   }
 }
 
@@ -34,18 +31,21 @@ class HalamanUtama extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
+            image: DecorationImage(
+              image: AssetImage("/assets/images/corak.jpg"),
+              fit: BoxFit.none,
+              repeat: ImageRepeat.repeat,
+            ),
           ),
         ),
         actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {},
-          ),
+          IconButton(icon: Icon(Icons.settings), onPressed: () {}),
+          IconButton(icon: Icon(Icons.add_box), onPressed: () {}),
         ],
+        leading: Icon(Icons.access_time_rounded, size: 50, color: Colors.blue),
+        toolbarHeight: 100,
       ),
-      body: Center(
-        child: Text("Isi Halaman"),
-      ),
+      body: Center(child: Text("Isi Halaman")),
     );
   }
 }
