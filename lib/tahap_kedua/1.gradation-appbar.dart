@@ -23,6 +23,9 @@ class HalamanUtama extends StatelessWidget {
       appBar: AppBar(
         title: Text("Gradient AppBar"),
         centerTitle: true,
+        // elevation itu seperti stack
+        // jadi antra halaman dengan si appbarnya
+        // semakin tinggi maka semakin jauh dan bayangannya akan semkin terlihat
         elevation: 4,
         flexibleSpace: Container(
           decoration: BoxDecoration(
