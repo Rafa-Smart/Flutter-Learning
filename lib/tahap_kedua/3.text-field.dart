@@ -44,27 +44,35 @@ class _State extends State<Stateful> {
       child:Center(
         child: Column(
           children: [
-            TextField(
-              controller: panjang,
-              decoration: InputDecoration(
-                labelText: "panjang",
-                prefixText: "Panjang:"
-              )
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: TextField(
+                controller: panjang,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "panjang",
+                  prefixText: "Panjang:"
+                )
+              ),
             ),
-            TextField(
-              controller: panjang,
-              decoration: InputDecoration(
-                labelText: "lebar",
-                prefixText: "lebar:"
-              )
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: TextField(
+                controller: lebar,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "lebar",
+                  prefixText: "lebar:"
+                )
+              ),
             ),
             SizedBox(height: 20,),
             ElevatedButton(
-              onPressed: null,
+              onPressed: hitung,
               child: Text('Hitung'),
             ),
             SizedBox(height: 20,),
-            Text('Hasil: ')
+            Text('Hasil: ${this.hasil}')
           ],
         ),
       )
