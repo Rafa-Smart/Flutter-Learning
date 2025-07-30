@@ -22,14 +22,24 @@ class Stateful extends StatefulWidget {
 
 class _State extends State<Stateful> {
 
-  final TextEditingController panjang = TextEditingController();
-  final TextEditingController lebar = TextEditingController();
-  var hasil;
+  final TextEditingController panjangLuas = TextEditingController();
+  final TextEditingController lebarLuas = TextEditingController();
 
-  void hitung(){
+  final TextEditingController panjangKeliling = TextEditingController();
+  final TextEditingController lebarKeliling = TextEditingController();
+  var hasilLuas;
+  var hasilKeliling;
+
+  void hitungLuas(){
     setState(() {
-      hasil = (double.parse(panjang.text) * double.parse(lebar.text));
+      hasilLuas = (double.parse(panjangLuas.text) * double.parse(lebarLuas.text));
     });
+  }
+
+  void hitungKeliling(){
+      setState(() {
+        hasilKeliling = (double.parse(panjangKeliling.text) + (double.parse(lebarKeliling.text) * 2));
+      });
   }
 
   @override
@@ -42,37 +52,121 @@ class _State extends State<Stateful> {
         ])
       ),
       child:Center(
-        child: Column(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(
-                controller: panjang,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "panjang",
-                  prefixText: "Panjang:"
-                )
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                gradient: LinearGradient(colors:[
+                  Colors.blue,
+                  Colors.green
+                ])
+              ),
+              width: 300,
+              height: 360,
+              child: Column(
+                children: [
+                  Text(
+                    "Keliling Persegi",
+                    style: TextStyle(
+                      fontSize: 20
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: TextField(
+                      controller: panjangKeliling,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(),
+                        labelText: "panjang",
+                        prefixText: "Panjang:"
+                      )
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: TextField(
+                      controller: lebarKeliling,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(),
+                        labelText: "lebar",
+                        prefixText: "lebar:"
+                      )
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  ElevatedButton(
+                    onPressed: hitungKeliling,
+                    child: Text('Hitung'),
+                  ),
+                  SizedBox(height: 20,),
+                  Text('Hasil keliling: ${this.hasilKeliling}'),
+                  SizedBox(height: 20,)
+                ],
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(
-                controller: lebar,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "lebar",
-                  prefixText: "lebar:"
-                )
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                gradient: LinearGradient(colors:[
+                  Colors.blue,
+                  Colors.green
+                ])
+              ),
+              width: 300,
+              height: 360,
+              child: Column(
+                children: [
+                  Text(
+                    "Luas Persegi",
+                    style: TextStyle(
+                      fontSize: 20
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: TextField(
+                      controller: panjangLuas,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(),
+                        labelText: "panjang",
+                        prefixText: "Panjang:"
+                      )
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    child: TextField(
+                      controller: lebarLuas,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(),
+                        labelText: "lebar",
+                        prefixText: "lebar:"
+                      )
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  ElevatedButton(
+                    onPressed: hitungLuas,
+                    child: Text('Hitung'),
+                  ),
+                  SizedBox(height: 20,),
+                  Text('Hasil luas: ${this.hasilLuas}'),
+                  SizedBox(height: 20,)
+                ],
               ),
             ),
-            SizedBox(height: 20,),
-            ElevatedButton(
-              onPressed: hitung,
-              child: Text('Hitung'),
-            ),
-            SizedBox(height: 20,),
-            Text('Hasil: ${this.hasil}')
           ],
         ),
       )
