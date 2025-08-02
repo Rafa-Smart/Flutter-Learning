@@ -1,5 +1,6 @@
 
 // ini penjelasan yang snagat amat lengkapnya
+// https://chatgpt.com/c/688de205-e110-8009-b0f6-11521dc433ff
 
 
 
@@ -84,6 +85,7 @@ class _State extends State<Stateful> {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                     child: TextField(
+                      autofocus: true,
                       controller: panjangKeliling,
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.person),
