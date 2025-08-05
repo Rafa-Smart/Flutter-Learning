@@ -1,22 +1,20 @@
-
 // ini penjelasan yang snagat amat lengkapnya
 // https://chatgpt.com/c/688de205-e110-8009-b0f6-11521dc433ff
 
-
-
 import 'package:flutter/material.dart';
-void main(){
+
+void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
-      home:Scaffold(
-        appBar:AppBar(title: Text('ini appbar'),),
-        body: Stateful()
-      )
+      home: Scaffold(
+        appBar: AppBar(title: Text('ini appbar')),
+        body: Stateful(),
+      ),
     );
   }
 }
@@ -27,7 +25,6 @@ class Stateful extends StatefulWidget {
 }
 
 class _State extends State<Stateful> {
-
   final TextEditingController panjangLuas = TextEditingController();
   final TextEditingController lebarLuas = TextEditingController();
 
@@ -36,28 +33,28 @@ class _State extends State<Stateful> {
   var hasilLuas;
   var hasilKeliling;
 
-  void hitungLuas(){
+  void hitungLuas() {
     setState(() {
-      hasilLuas = (double.parse(panjangLuas.text) * double.parse(lebarLuas.text));
+      hasilLuas =
+          (double.parse(panjangLuas.text) * double.parse(lebarLuas.text));
     });
   }
 
-  void hitungKeliling(){
-      setState(() {
-        hasilKeliling = (double.parse(panjangKeliling.text) + (double.parse(lebarKeliling.text) * 2));
-      });
+  void hitungKeliling() {
+    setState(() {
+      hasilKeliling =
+          (double.parse(panjangKeliling.text) +
+          (double.parse(lebarKeliling.text) * 2));
+    });
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Colors.blue,
-          Colors.red
-        ])
+        gradient: LinearGradient(colors: [Colors.purple, Colors.pink]),
       ),
-      child:Center(
+      child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -66,22 +63,14 @@ class _State extends State<Stateful> {
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                gradient: LinearGradient(colors:[
-                  Colors.blue,
-                  Colors.green
-                ])
+                gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
               ),
-              width: 300,
-              height: 360,
+              width: MediaQuery.of(context).size.width * 0.3,
+              height: MediaQuery.of(context).size.height * 0.6,
               child: Column(
                 children: [
-                  Text(
-                    "Keliling Persegi",
-                    style: TextStyle(
-                      fontSize: 20
-                    ),
-                  ),
-                  SizedBox(height: 20,),
+                  Text("Keliling Persegi", style: TextStyle(fontSize: 20)),
+                  SizedBox(height: 20),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                     child: TextField(
@@ -91,8 +80,8 @@ class _State extends State<Stateful> {
                         prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(),
                         labelText: "panjang",
-                        prefixText: "Panjang:"
-                      )
+                        prefixText: "Panjang:",
+                      ),
                     ),
                   ),
                   Container(
@@ -103,18 +92,18 @@ class _State extends State<Stateful> {
                         prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(),
                         labelText: "lebar",
-                        prefixText: "lebar:"
-                      )
+                        prefixText: "lebar:",
+                      ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: hitungKeliling,
                     child: Text('Hitung'),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20),
                   Text('Hasil keliling: ${this.hasilKeliling}'),
-                  SizedBox(height: 20,)
+                  SizedBox(height: 20),
                 ],
               ),
             ),
@@ -123,22 +112,14 @@ class _State extends State<Stateful> {
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                gradient: LinearGradient(colors:[
-                  Colors.blue,
-                  Colors.green
-                ])
+                gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
               ),
-              width: 300,
-              height: 360,
+              width: MediaQuery.of(context).size.width * 0.3,
+              height: MediaQuery.of(context).size.height * 0.6,
               child: Column(
                 children: [
-                  Text(
-                    "Luas Persegi",
-                    style: TextStyle(
-                      fontSize: 20
-                    ),
-                  ),
-                  SizedBox(height: 20,),
+                  Text("Luas Persegi", style: TextStyle(fontSize: 20)),
+                  SizedBox(height: 20),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                     child: TextField(
@@ -147,8 +128,8 @@ class _State extends State<Stateful> {
                         prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(),
                         labelText: "panjang",
-                        prefixText: "Panjang:"
-                      )
+                        prefixText: "Panjang:",
+                      ),
                     ),
                   ),
                   Container(
@@ -159,24 +140,27 @@ class _State extends State<Stateful> {
                         prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(),
                         labelText: "lebar",
-                        prefixText: "lebar:"
-                      )
+                        prefixText: "lebar:",
+                      ),
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: hitungLuas,
                     child: Text('Hitung'),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.redAccent),
+                    ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 20),
                   Text('Hasil luas: ${this.hasilLuas}'),
-                  SizedBox(height: 20,)
+                  SizedBox(height: 20),
                 ],
               ),
             ),
           ],
         ),
-      )
+      ),
     );
   }
 }

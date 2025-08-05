@@ -50,9 +50,11 @@ class MyApp extends StatelessWidget {
               final containerHeight = constraints.maxWidth / 1.2;
 
               return Container(
+                
                 width: containerWidth,
                 height: containerHeight,
                 decoration: BoxDecoration(
+                  border: Border.all(color: Colors.red, width: 50),
                   gradient: LinearGradient(
                     colors: [Colors.purpleAccent, Colors.blueAccent],
                   ),
