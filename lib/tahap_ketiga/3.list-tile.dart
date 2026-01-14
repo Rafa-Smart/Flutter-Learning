@@ -26,7 +26,7 @@ class _App extends State<App> {
         return ListTile(
           title: Text('Data utama ke ${index}'),
           subtitle: Text('subtitle loremasdsadasdasdasdsadsadsadasdasdsadsad ${index}', style: TextStyle(
-            
+
           ),),
           leading: CircleAvatar(child: Icon(Icons.person_2)),
 
@@ -42,3 +42,5 @@ class _App extends State<App> {
     );
   }
 }
+
+

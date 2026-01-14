@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
 
-              // Gambar di dalam Container ber-background
+              // Gambar di dalam  Container ber-background
               Container(
                 width: 200,
                 height: 200,
