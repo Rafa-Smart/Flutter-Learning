@@ -49,6 +49,7 @@ class _StateFulNya extends State<MyStateFulWidget> {
           GestureDetector(
             onDoubleTap: () => setState(() {
               // ketika di double tap, akan mengubah ukuran dan warna
+              // karena akan rebuild
             }),
             child: AnimatedContainer(
               duration: Duration(seconds: 1),

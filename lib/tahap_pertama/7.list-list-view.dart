@@ -3,6 +3,9 @@
 
 // https://chatgpt.com/c/6885d940-b864-8009-8713-482bd923c8d3
 
+// atau bisa juga pakai ini
+// https://chat.deepseek.com/a/chat/s/be5f8d66-c74f-4280-b186-4d90106a9573
+
 // Setiap item di dalam ListView biasanya berasal dari sebuah List data.
 
 // Jika menggunakan ListView.builder:
