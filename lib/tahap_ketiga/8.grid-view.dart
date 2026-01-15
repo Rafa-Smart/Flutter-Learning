@@ -4,6 +4,10 @@ import 'dart:math';
 // wajib lihat kalo lagi baca file ini
 // https://chat.deepseek.com/a/chat/s/0ddd2c5e-e7a0-4dbc-97ed-07cf50d41945
 
+// kalo yang GridView.count itu tidak membutuhkan gridDelegate
+// jadi atur jumlahnya itu lanugn
+
+// dan gridDelegate itu bisanya isinya SLIVER....
 
 // ada uga yang kaya gini
 // jadi ini mah baakalh kaya wrap
@@ -96,8 +100,8 @@ class _MyGridState extends State<MyGrid> {
             // atau bisa juga gini ya
             // berai nanti di abwah ini yang main dan crossnya akn ketukar
             // PENGINT TUH JADI KETUKAR, JADI SESUAI DENGAN AXIS
-            scrollDirection: Axis.horizontal,
-            physics: BouncingScrollPhysics(),
+            // scrollDirection: Axis.horizontal,
+            physics:   BouncingScrollPhysics(),
             // jadi ini tuh fungsinya agar tiap baris itu hanya 2 saja
             // karena in withCrosAxis
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -124,7 +128,7 @@ class _MyGridState extends State<MyGrid> {
             ),
             children: [
               ...List<Widget>.generate(
-                20,
+                110,
                 (index) => AnimatedContainer(
                   decoration: BoxDecoration(
 
