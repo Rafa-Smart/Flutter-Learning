@@ -40,7 +40,6 @@ void main() {
 // harusnya kan buat dulu material app, baru kita baut contextnya
 
 // jadinya kita harusnya di pisah dulu di main.dart untuk amterialapp
-
 // tapi ga papa di runApp kita masuakn saja materialapp
 // nah disana kita hanya jalankan materilapp baru nanti di homenya kita
 // reutnr widgt yang ada showDialognya
