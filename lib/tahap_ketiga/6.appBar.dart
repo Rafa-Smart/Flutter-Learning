@@ -65,6 +65,9 @@ class _MyAppState extends State<MyApp> {
           // jadi ini akna nambah 200 pixel
 
           // disin ktia pasang juga untuk si containernya ii agar 200 ingginya
+
+          // jdi INGAT KALO KTIA MAU PASANG APAPUN SELAIN WIDGET YANG TURUNAN DARI PREFERREDsIZE
+          // MAKA KIA HARUS BUNGKUS DULU PAKE INI
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(200),
             child: Container(
