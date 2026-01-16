@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-// ini penjelannya lengkap banget 
+// ini penjelannya lengkap banget (navigation)
 // https://chat.deepseek.com/a/chat/s/81322432-3a03-475d-9470-3808b990d1cf
+
+// ini routes
+// https://chat.deepseek.com/a/chat/s/5fb8abb4-e1a0-4f78-813c-7566491926c9
 
 void main() => runApp(NavigationApp());
 
@@ -37,6 +40,32 @@ class NavigationApp extends StatelessWidget {
         // ini kalo enga pake nanti warnig
         return null;
       },
+      // Fallback untuk route yang tidak terdaftar
+
+      //  bisa juga kaya gini
+      // onGenerateRoute: (settings) {
+      //   return MaterialPageRoute(
+      //     builder: (context) => NotFoundPage(),
+      //   );
+      // },
+      // Handle route yang tidak dikenal
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (context) => ErrorPage());
+      },
+    );
+  }
+}
+
+class ErrorPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(
+          'halaman error',
+          style: TextStyle(fontSize: 30, color: Colors.red),
+        ),
+      ),
     );
   }
 }
@@ -122,6 +151,7 @@ class HomeScreen extends StatelessWidget {
               },
               child: Text('kirim data 2'),
             ),
+            SizedBox(height: 10,),
 
             ElevatedButton(
               onPressed: () {
