@@ -96,7 +96,9 @@ class _MyAppState extends State<MyApp> {
         length: tabs.length,
         child: Scaffold(
           // mungkin ktia juga bisa taruh di sini untuk controller DefaulttabController
-          // tapi sayangnya appBar ini butuh preferred, jadi kita naik lagi ke atas yaitu di scaffold
+          // tapi sayangnya appBar ini butuh preferred, jadi kalo di bungkus dengna DefaultTab (yang bukan preferedSize)
+          // maka akan error
+          //jadi kita naik lagi ke atas yaitu di scaffold
           appBar: AppBar(
             // Namun, jika kita ingin menempatkan widget lain di bottom yang bukan
             //PreferredSizeWidget, maka kita perlu membungkusnya dengan PreferredSize untuk

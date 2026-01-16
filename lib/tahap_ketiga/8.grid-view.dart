@@ -14,7 +14,7 @@ import 'dart:math';
 // jadi lebarnya kna kalo grid itu di atru dari max count crossnya
 // tapi dnegnaini kita bisa menetapkan ukuran lebarnya -> KALO AXIS VERTICAL
 
-// jadi nnati perbarisnya itu akna menyesuailkan divice
+// jadi nnati perbarisnya itu akna menyesuailkan device
 // 
 
 // GridView.extent(

@@ -211,7 +211,7 @@ class _MyAppState extends State<MyAppFulWidget> {
             });
           },
 
-          builder: (context, candidateData, rejectedData) {
+          builder: (contextBaru, candidateData, rejectedData) {
             // nah ini, adlah contianer yang dibuat unutk tempat
             // si menaruh dragnya
             return AnimatedContainer(

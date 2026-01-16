@@ -142,7 +142,7 @@ class App extends StatelessWidget {
 // karena pareameeternya itu Build (mungkin) tanya aja nanti
 void _showInputDialog(BuildContext context) async {
   String inputText = '';
-  final result = await showDialog(
+  final result = await  showDialog(
     context: context, // ini context yang di alirin dari atas ya
     builder: (_showInputDialogContext){
       return AlertDialog(
@@ -161,7 +161,13 @@ void _showInputDialog(BuildContext context) async {
         ],
       );
     },
-  );
+  ).then((value) {
+    // nah disni kita juga bisa pindah kan aja if yang di abwah kesini
+    // karena nanti nya value itu adalh apa apa yang di kembalikan oleh
+    // si pop di paramter kedua sebagai return dari fugnsi showDialog
+    // dan ini bertipe future jadi bisa kita then
+    print(value);
+  });
 
   if(result != null){
     print('nama yang di masukan ${result}');
@@ -172,7 +178,7 @@ void _showInputDialog(BuildContext context) async {
     // Widget App yang sudha punya context yang di bawah materialApp
 
     // jadi dia akna menampilkan message ini didalm halaman yang punya context
-
+    // https://gemini.google.com/app/20f892fe2db3b6bd?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&utm_source=sem&utm_medium=paid-media&utm_campaign=bkws&pt=9008&mt=8&ct=p-growth-sem-bkws&gclsrc=aw.ds&gad_source=1&gad_campaignid=20437330464&gbraid=0AAAAApk5Bhka66AdFa8cOMC3Zhidi-TjD&gclid=CjwKCAiAvaLLBhBFEiwAYCNTf84PYs3j_YmOa1IKxfZm98fwQyOIhRtFE-k6uAr3aguZAy8DPbWWpxoCyLUQAvD_BwE
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Halo ${result}')));
   }
 
