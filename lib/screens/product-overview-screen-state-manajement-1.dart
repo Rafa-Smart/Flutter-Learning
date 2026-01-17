@@ -6,23 +6,25 @@ import 'package:flutter/material.dart';
 
 class ProductOverviewScreen extends StatelessWidget {
   // disni ktia mapping data product pake model Product
-  List<Product> products = List.generate(20, (index) {
+  final List<Product> products = List.generate(20, (index) {
     return Product(
       id: "id_${index}",
       title: 'title_${index}',
       description: 'description_${index}',
       // disini kenapa kita stirngkan dulu
       // karena fungsi parse ini butuh stirng
-      price: double.parse(Random().nextInt(22).toString()),
-      imageUrl: 'imageUrl_${index}',
+      price: double.parse(Random().nextInt(20).toString()),
+      imageUrl: 'https://picsum.photos/id/${index + 10}/200/300',
     );
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('ini appbar'),),
       body: GridView.builder(
         padding: EdgeInsets.all(10),
+        itemCount: products.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 10,

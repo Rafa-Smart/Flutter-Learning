@@ -10,6 +10,7 @@ class ProductDetailScreen extends StatelessWidget {
     final productId = ModalRoute.of(context)?.settings.arguments;
 
     return Scaffold(
+      appBar: AppBar(title: Text('ini appbar'),),
       body: Center(child: Text('ini adalah detali page product: ${productId}')),
     );
   }

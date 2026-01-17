@@ -19,10 +19,16 @@ class ProductItem extends StatelessWidget {
               context,
             ).pushNamed(ProductDetailScreen.routeName, arguments: this.id);
           },
-          child: Image.network(this.imageUrl, fit: BoxFit.cover),
+          child: Image.network(
+            this.imageUrl,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return Icon(Icons.person);
+            },
+          ),
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black26,
+          backgroundColor: Colors.black54,
           leading: IconButton(
             onPressed: () {},
             icon: Icon(Icons.favorite_border_outlined),
