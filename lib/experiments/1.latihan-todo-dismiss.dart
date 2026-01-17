@@ -320,7 +320,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ? 'Item ditandai sebagai selesai'
             : 'Item dihapus',
       ),
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 1),
       action: SnackBarAction(
         label: 'BATAL',
         onPressed: () {

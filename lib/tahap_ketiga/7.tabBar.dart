@@ -148,22 +148,24 @@ class _MyAppState extends State<MyApp> {
               unselectedLabelStyle: TextStyle(
                 color: Colors.blue
               ),
-              indicator: BoxDecoration(
-                color: Colors.green,
+              // indicator: BoxDecoration(
+              //   color: Colors.green,
 
-                border: Border(
-                  top: BorderSide(
-                    color: Colors.black45,
-                    width: 5
-                  ),
-                )
-              ),
+              //   border: Border(
+              //     top: BorderSide(
+              //       color: Colors.black45,
+              //       width: 5
+              //     ),
+              //   )
+              // ),
 
               // ini juga bagus
-              // indicator: UnderlineTabIndicator(
-              //   borderSide: BorderSide(width: 4, color: Colors.amber),
-              //   insets: EdgeInsets.symmetric(horizontal: 20),
-              // ),
+              indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(width: 4, color: Colors.amber,strokeAlign:3 ),
+                insets: EdgeInsets.symmetric(horizontal: 90),
+
+
+              ),
             ),
           ),
 
