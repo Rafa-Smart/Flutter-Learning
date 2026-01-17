@@ -1,42 +1,82 @@
 import 'dart:math';
 
 import 'package:belajar_flutter/models/product-state-manajement-1.dart';
+import 'package:belajar_flutter/providers/products-state-manajement-1.dart';
+import 'package:belajar_flutter/widgets/product-grid-1.dart';
 import 'package:belajar_flutter/widgets/product-item-state-manajement-1.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductOverviewScreen extends StatelessWidget {
-  // disni ktia mapping data product pake model Product
-  final List<Product> products = List.generate(20, (index) {
-    return Product(
-      id: "id_${index}",
-      title: 'title_${index}',
-      description: 'description_${index}',
-      // disini kenapa kita stirngkan dulu
-      // karena fungsi parse ini butuh stirng
-      price: double.parse(Random().nextInt(20).toString()),
-      imageUrl: 'https://picsum.photos/id/${index + 10}/200/300',
-    );
-  });
-
   @override
   Widget build(BuildContext context) {
+    // karena di materialnya ita udha pasang change notifier makanya
+    // disni ktia bsia untuk mengambil data providenya
+    final product = Provider.of<ProductProviderState>(context);
     return Scaffold(
-      appBar: AppBar(title: Text('ini appbar'),),
-      body: GridView.builder(
-        padding: EdgeInsets.all(10),
-        itemCount: products.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 3/2 // x nya 3 dan y nya 2
-        ),
-        itemBuilder: (context, index) {
-          //tanda ! artinya itu harus ada 
+      appBar: AppBar(title: Text('ini appbar')),
+      body: Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: Stack(
+          children: [
+            // ini ga perlu pake expanded juga bisa ya
+            // karena ini tuh pake stack
 
-          return ProductItem(id: products[index].id!, title: products[index].title!, imageUrl: products[index].imageUrl!);
-        },
+            // nah disni itu ad adi widget ya
+            ProductGrid1(),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  final result = await _showDialog(context);
+                  if (result['isAdd']) {
+                    product.addProduct(product: result['data']);
+                  } else {}
+                },
+                child: Icon(Icons.add),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
+}
+
+// ini build context dari si ProductOverviewScreen
+Future<Map<String, dynamic>> _showDialog(BuildContext context) async {
+  // TextEditingController nameProduct = TextEditingController();
+  // gausha pake itu ya soalnya ini tuh buka n yang biasa, ini mah text filed jadi hanya inputan aja
+
+  String data = '';
+
+  bool siAdd = false;
+  siAdd = await showDialog(
+    context: context,
+    builder: (contextDialogCurrent) {
+      return AlertDialog(
+        title: Text('Add Product'),
+        content: TextField(
+          onChanged: (product) {
+            data = product;
+          },
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, false);
+            },
+            child: Text("batal"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, true);
+            },
+            child: Text("tambah"),
+          ),
+        ],
+      );
+    },
+  );
+  return {'isAdd': siAdd, 'data': data};
 }

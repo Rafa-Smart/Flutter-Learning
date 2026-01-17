@@ -31,10 +31,40 @@ class ProductProviderState extends ChangeNotifier {
   //   return _allProducts;
   // }
   // jadi dia itu ga perlu paramater
-  List<Product> get allProducts => _allProducts;
+  // biar nanti datanya itu ada di ayng pertma
+  // karea fungsi add itu akan nambah data ke terakhir
+  List<Product> get allProducts => _allProducts.reversed.toList();
 
   // bisa nih untuk setter
   // void set pasdsad(as){
 
   // }
+
+  // disini kita buat fungsi untuk tambah data product
+  void addProduct({product}) {
+    _allProducts.add(
+      Product(
+        id: "id_${Random().nextInt(255)}",
+        title: 'title_${product ?? 'ga ada nih'}',
+        description:
+            'description_${Random().nextInt(255)}}',
+        // disini kenapa kita stirngkan dulu
+        // karena fungsi parse ini butuh stirng
+        price: double.parse(Random().nextInt(20).toString()),
+        imageUrl: 'https://picsum.photos/id/24/200/300',
+      ),
+    );
+    notifyListeners();
+
+    // nah gini disni itu kan ketika kita tmabah data ke product
+    // otomatis data allproduct ini akna bertamabah ya
+    // nah agar dat ayang abru itu bsia langusng muncul tnapa harus reload dulu
+    // maka kita perlu menggunakan yang namanya notifyListener()
+
+    // agar siapapun yang melisten secara misal consumer -> terus menerus
+    // atau selector yang mendengar kans ecra spesifik mialnya pada
+    // variable _allProducts
+    // maka dia akna rebuild lalu dat nya kan otomati kan muncul lagi ke layar user
+    // gitu
+  }
 }
