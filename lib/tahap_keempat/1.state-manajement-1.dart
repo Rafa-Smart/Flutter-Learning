@@ -24,7 +24,9 @@ class StateManajement1 extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'MyShop',
-        theme: ThemeData(primaryColor: Colors.indigo, fontFamily: 'Lato'),
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          primaryColor: Colors.indigo, fontFamily: 'Lato'),
         routes: {
           ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
         },

@@ -25,6 +25,10 @@ class _MyAppState extends State<MyApp> {
         body: ListView.separated(
 
           // nah nanti kita bisa pake separator untuk antar widgetnya
+
+          // disni kita kasih context siapa tau didalam
+          // elemen si separatedBuilder ini dia buth
+          // contexat misal untuk akses theme
           separatorBuilder: (context, index) {
             return SizedBox(width: 10,height: 10,);
           },

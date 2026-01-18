@@ -259,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     }
 
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                       SnackBar(
                         content: Text(
                           direction == DismissDirection.startToEnd
                               ? "Berhasil Di Check"

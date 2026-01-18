@@ -64,6 +64,11 @@ class ProductItem extends StatelessWidget {
     // jadi kita bsia akses aja si Product ini
 
     // jadi product ini punya id, title, dll
+
+
+    // ingat ya, in kita bisa akses povider dari Product
+    // karena di product-grid-1 dia si widget ProductItem in
+    // telah di bungkus dnena changenotifier untuk tiap tiap productItem ini, makanya dia bisa akses provider product disni
     final Product product = Provider.of<Product>(context);
 
     return ClipRRect(
