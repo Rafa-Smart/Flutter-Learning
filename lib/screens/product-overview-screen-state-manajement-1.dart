@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:belajar_flutter/models/product-state-manajement-1.dart';
 import 'package:belajar_flutter/providers/products-state-manajement-1.dart';
+import 'package:belajar_flutter/widgets/badge-1.dart';
 import 'package:belajar_flutter/widgets/product-grid-1.dart';
 import 'package:belajar_flutter/widgets/product-item-state-manajement-1.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,27 @@ class ProductOverviewScreen extends StatelessWidget {
     // disni ktia bsia untuk mengambil data providenya
     final product = Provider.of<ProductProviderState>(context);
     return Scaffold(
-      appBar: AppBar(title: Text('ini appbar')),
+      appBar: AppBar(
+        title: Text('ini appbar'),
+        centerTitle: true,
+        flexibleSpace: Container(
+          color: Colors.blue,
+        ),
+        actions: [
+          MyBadge(
+            child: IconButton(
+              onPressed: () {
+
+                // disni ketika kita klik maka kita akna pindah halaman
+                // Navigator.push 
+
+              },
+              icon: Icon(Icons.shopping_cart),
+            ),
+            value: "0",
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(3.0),
         child: Stack(
