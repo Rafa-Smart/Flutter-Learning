@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:belajar_flutter/models/product-state-manajement-1.dart';
+import 'package:belajar_flutter/providers/cart-provider-1.dart';
 import 'package:belajar_flutter/providers/products-state-manajement-1.dart';
+import 'package:belajar_flutter/screens/cart-screen-1.dart';
 import 'package:belajar_flutter/widgets/badge-1.dart';
 import 'package:belajar_flutter/widgets/product-grid-1.dart';
 import 'package:belajar_flutter/widgets/product-item-state-manajement-1.dart';
@@ -18,21 +20,26 @@ class ProductOverviewScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('ini appbar'),
         centerTitle: true,
-        flexibleSpace: Container(
-          color: Colors.blue,
-        ),
+        flexibleSpace: Container(color: Colors.blue),
         actions: [
-          MyBadge(
-            child: IconButton(
-              onPressed: () {
-
-                // disni ketika kita klik maka kita akna pindah halaman
-                // Navigator.push 
-
-              },
-              icon: Icon(Icons.shopping_cart),
-            ),
-            value: "0",
+          // nah disini itu ktia ga perlu pake Provider.of(context)
+          // tapi kitaakna menggunakan Consumer karena dia akna berubah ubah
+          // jadi kalo berubah maka hanya widgt Badge ini aja yang rebuild
+          Consumer<CartProvider>(
+            builder: (context, value, child) {
+              return MyBadge(
+                child: IconButton(
+                  onPressed: () {
+                    // disni ketika kita klik maka kita akna pindah halaman
+                    // Navigator.push
+                    // gausah pake arguments
+                    Navigator.pushNamed(context, CartScreen.routeName);
+                  },
+                  icon: Icon(Icons.shopping_cart),
+                ),
+                value: value.sumItems.toString(),
+              );
+            },
           ),
         ],
       ),

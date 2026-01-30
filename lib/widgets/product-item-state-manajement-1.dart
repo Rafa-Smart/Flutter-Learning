@@ -152,7 +152,20 @@ class ProductItem extends StatelessWidget {
           title: Text(product.title.toString(), textAlign: TextAlign.center),
           trailing: IconButton(
             onPressed: () {
-              
+              // nah ketika mau di tambahkan kita mau coba unuk tampilakn snackBar
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('product sudah di tambahkan ke cart'),
+                  duration: Duration(milliseconds: 500),
+                ),
+              );
+              cart.addCart(
+                productId: product.id.toString(),
+                title: product.title.toString(),
+                price: int.parse(product.price.toString()),
+                qty: 1,
+              );
+              print(cart.items);
             },
             icon: Icon(Icons.shopping_cart),
             color: Theme.of(context).primaryColorDark,

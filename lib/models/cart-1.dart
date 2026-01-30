@@ -1,7 +1,7 @@
 class CartItem {
   String id;
   String title;
-  String price;
+  int price;
   int qty;
 
   CartItem({
@@ -10,4 +10,12 @@ class CartItem {
     required this.price,
     required this.qty,
   });
+
+  //   @override
+  // disini kita ovveride method + jadi tiap kai kita tambahkan misal
+  //
+  operator +(CartItem other) {
+    //  disin harus return objek baru
+    return CartItem(id: id, title: title, price: price, qty: qty + other.qty);
+  }
 }

@@ -1,5 +1,7 @@
 import 'package:belajar_flutter/providers/cart-provider-1.dart';
 import 'package:belajar_flutter/providers/products-state-manajement-1.dart';
+import 'package:belajar_flutter/screens/cart-screen-1.dart';
+import 'package:belajar_flutter/widgets/badge-1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +25,29 @@ class ProductDetailScreen extends StatelessWidget {
     // karena kita hanya akses fugnsi
     final cartProvider = Provider.of<CartProvider>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(title: Text('ini appbar')),
+      appBar: AppBar(
+        title: Text('ini appbar'),
+        flexibleSpace: Container(color: Colors.blue),
+        centerTitle: true,
+        actions: [
+          Consumer<CartProvider>(
+            builder: (context, value, child) {
+              return MyBadge(
+                child: IconButton(
+                  onPressed: () {
+                    // disni ketika kita klik maka kita akna pindah halaman
+                    // Navigator.push
+                    // gausah pake arguments
+                    Navigator.pushNamed(context, CartScreen.routeName);
+                  },
+                  icon: Icon(Icons.shopping_cart),
+                ),
+                value: value.sumItems.toString(),
+              );
+            },
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -58,30 +82,25 @@ class ProductDetailScreen extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text('product sudah di tambahkan ke cart'),
-                    duration: Duration(seconds: 500),
+                    duration: Duration(milliseconds: 500),
                   ),
                 );
                 cartProvider.addCart(
                   productId: product.id.toString(),
                   title: product.title.toString(),
-                  price: product.price.toString(),
+                  price: int.parse(product.price.toString()),
                   qty: 1,
                 );
                 print(cartProvider.items);
               },
               child: Container(
-                decoration: BoxDecoration(
-                  
-                ),
+                decoration: BoxDecoration(),
                 width: 100,
                 height: 30,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                  
-                  Icon(Icons.add),
-                  Text("add cart")
-                ],),
+                  children: [Icon(Icons.add), Text("add cart")],
+                ),
               ),
             ),
           ],

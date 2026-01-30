@@ -3,6 +3,7 @@
 
 import 'package:belajar_flutter/providers/cart-provider-1.dart';
 import 'package:belajar_flutter/providers/products-state-manajement-1.dart';
+import 'package:belajar_flutter/screens/cart-screen-1.dart';
 import 'package:belajar_flutter/screens/product-detail-screen-state-manajement-1.dart';
 import 'package:belajar_flutter/screens/product-overview-screen-state-manajement-1.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,6 @@ void main() {
 
 class StateManajement1 extends StatelessWidget {
   @override
-
-
   Widget build(BuildContext context) {
     // disi kita set agar si Materialini di bungkus oleh si ChangerNotifierProvider
 
@@ -39,10 +38,21 @@ class StateManajement1 extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           primaryColor: Colors.indigo,
-          fontFamily: 'Lato',
+          
+          textTheme: TextTheme(
+            bodyMedium: TextStyle(fontFamily: 'Lato'),
+            bodyLarge: TextStyle(fontFamily: 'Lato'),
+            bodySmall: TextStyle(fontFamily: 'Lato'),
+            displayMedium: TextStyle(fontFamily: 'Lato'),
+            headlineMedium: TextStyle(fontFamily: 'Lato'),
+          ),
+          appBarTheme: AppBarThemeData(
+            titleTextStyle: TextStyle(fontFamily: 'Lato',color: Colors.white, fontSize: 35),
+          ),
         ),
         routes: {
           ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
+          CartScreen.routeName: (context) => CartScreen(),
         },
 
         // nah jadigini siwidget productDetialSrceen ini sudha emndengarkan si
