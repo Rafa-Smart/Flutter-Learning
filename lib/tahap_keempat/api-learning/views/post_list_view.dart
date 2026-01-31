@@ -47,11 +47,11 @@ class _PostListViewState extends State<PostListView> {
       body: Consumer<PostViewmodels>(
         builder: (context, viewModel, child) {
           final response = viewModel.postsResponse;
-          
+          response.data?.take(20);
           if (response.isLoading) {
-            return   LoadingIndicator();
+            return LoadingIndicator();
           }
-          
+
           if (response.hasError) {
             return Center(
               child: Column(
@@ -67,11 +67,11 @@ class _PostListViewState extends State<PostListView> {
               ),
             );
           }
-          
+
           if (!response.hasData || response.data!.isEmpty) {
             return const Center(child: Text('No posts available'));
           }
-          
+
           return ListView.builder(
             itemCount: response.data!.length,
             itemBuilder: (context, index) {
@@ -109,7 +109,10 @@ class _PostListViewState extends State<PostListView> {
   }
 
   void _showDeleteDialog(
-      BuildContext context, int postId, PostViewmodels viewModel) {
+    BuildContext context,
+    int postId,
+    PostViewmodels viewModel,
+  ) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

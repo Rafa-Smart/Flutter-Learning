@@ -28,8 +28,8 @@ class PostViewmodels extends ChangeNotifier {
   // nah disini kita buatkna getter untuk mengakses property dari si state state ini
 
   ApiResponse<List<Post>> get postsResponse => _postsResponse;
-  ApiResponse<Post> get postResponse => postResponse;
-  ApiResponse<void> get operationResponse => operationResponse;
+  ApiResponse<Post> get postResponse => _postResponse;
+  ApiResponse<void> get operationResponse => _operationResponse;
 
   // Method untuk mengambil semua posts (GET)
   // disini ga usah pakai return, karena kita hanya inign untuk memasukannya

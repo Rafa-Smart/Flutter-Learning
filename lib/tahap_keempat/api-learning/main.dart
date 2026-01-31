@@ -1,4 +1,5 @@
 import 'package:belajar_flutter/tahap_keempat/api-learning/viewmodels/post_viewmodels.dart';
+import 'package:belajar_flutter/tahap_keempat/api-learning/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'HTTP Methods Tutorial',
         theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
-        home: Text(''),
+        home: HomeView(),
         debugShowCheckedModeBanner: false,
       ),
     );

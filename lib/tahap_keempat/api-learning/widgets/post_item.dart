@@ -1,6 +1,7 @@
-import 'package:belajar_flutter/tahap_keempat/api-learning/models/post_model.dart';
 import 'package:flutter/material.dart';
+import '../models/post_model.dart';
 
+// Reusable widget untuk menampilkan item post
 class PostItem extends StatelessWidget {
   final Post post;
   final VoidCallback onTap;
@@ -18,25 +19,30 @@ class PostItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(8.0),
       child: ListTile(
         onTap: onTap,
         title: Text(
           post.title,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        subtitle: Text(post.body, overflow: TextOverflow.ellipsis, maxLines: 2),
+        subtitle: Text(
+          post.body,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
         trailing: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
+              icon: const Icon(Icons.edit, color: Colors.blue),
               onPressed: onEdit,
-              icon: Icon(Icons.edit, color: Colors.blue),
             ),
             IconButton(
+              icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: onDelete,
-              icon: Icon(Icons.delete, color: Colors.red),
             ),
           ],
         ),

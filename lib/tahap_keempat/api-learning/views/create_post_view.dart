@@ -1,4 +1,6 @@
+import 'package:belajar_flutter/tahap_keempat/api-learning/viewmodels/post_viewmodels.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CreatePostView extends StatefulWidget {
   @override
@@ -6,14 +8,9 @@ class CreatePostView extends StatefulWidget {
 }
 
 class _CreatePostViewState extends State<CreatePostView> {
-  // disni kita definisikan si key dari form agar bisa kia akses si formny
-
   final formKey = GlobalKey<FormState>();
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _bodyController = TextEditingController();
-
-  // disni kia juga override ketika sudha pndah halaman
-  // kan akna di dispose maka kita sekalian dispose si controllernya ini
 
   @override
   void dispose() {
@@ -27,7 +24,7 @@ class _CreatePostViewState extends State<CreatePostView> {
     return Scaffold(
       appBar: AppBar(title: Text('Create Post'), centerTitle: true),
       body: Padding(
-        padding: EdgeInsetsGeometry.all(16),
+        padding: const EdgeInsets.all(16.0),  // ✅ FIXED
         child: Form(
           key: formKey,
           child: Column(
@@ -55,6 +52,7 @@ class _CreatePostViewState extends State<CreatePostView> {
                   labelText: "body",
                   border: OutlineInputBorder(),
                 ),
+                maxLines: 3,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'please enter a body';
@@ -63,7 +61,61 @@ class _CreatePostViewState extends State<CreatePostView> {
                 },
               ),
               SizedBox(height: 32),
-               
+              // ✅ TAMBAHKAN TOMBOL CREATE
+              Consumer<PostViewmodels>(
+                builder: (context, viewModel, child) {
+                  final response = viewModel.operationResponse;
+                  
+                  if (response.isLoading) {
+                    return CircularProgressIndicator();
+                  }
+                  
+                  return ElevatedButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        viewModel.createPost(
+                          _titleController.text,
+                          _bodyController.text,
+                        );
+                      }
+                    },
+                    child: Text('Create Post'),
+                  );
+                },
+              ),
+              // ✅ TAMBAHKAN FEEDBACK SUCCESS/ERROR
+              Consumer<PostViewmodels>(
+                builder: (context, viewModel, child) {
+                  final response = viewModel.operationResponse;
+                  
+                  if (response.hasData) {
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Post created successfully!'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                      viewModel.resetOperationState();
+                      // Clear form setelah berhasil
+                      _titleController.clear();
+                      _bodyController.clear();
+                    });
+                  }
+                  
+                  if (response.hasError) {
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 16.0),
+                      child: Text(
+                        'Error: ${response.error}',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    );
+                  }
+                  
+                  return SizedBox.shrink();
+                },
+              ),
             ],
           ),
         ),
