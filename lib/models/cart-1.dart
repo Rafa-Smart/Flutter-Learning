@@ -19,3 +19,4 @@ class CartItem {
     return CartItem(id: id, title: title, price: price, qty: qty + other.qty);
   }
 }
+// test

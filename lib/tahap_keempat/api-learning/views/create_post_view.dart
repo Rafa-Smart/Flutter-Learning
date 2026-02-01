@@ -59,8 +59,8 @@ class _CreatePostViewState extends State<CreatePostView> {
                   }
                   return null;
                 },
-              ),
-              SizedBox(height: 32),
+              ),SizedBox(height: 32),
+              
               // ✅ TAMBAHKAN TOMBOL CREATE
               Consumer<PostViewmodels>(
                 builder: (context, viewModel, child) {
