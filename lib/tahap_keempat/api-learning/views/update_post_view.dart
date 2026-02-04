@@ -183,6 +183,7 @@ class _UpdatePostViewState extends State<UpdatePostView> {
                   // NOTE
                   // NOTE
                   // NOTE
+                  // NOTE
                   const Text(
                     'Note:',
                     style: TextStyle(fontWeight: FontWeight.bold),
