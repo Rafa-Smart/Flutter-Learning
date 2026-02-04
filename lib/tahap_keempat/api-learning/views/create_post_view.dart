@@ -24,7 +24,7 @@ class _CreatePostViewState extends State<CreatePostView> {
     return Scaffold(
       appBar: AppBar(title: Text('Create Post'), centerTitle: true),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),  // ✅ FIXED
+        padding: const EdgeInsets.all(16.0),  //   FIXED
         child: Form(
           key: formKey,
           child: Column(
@@ -61,7 +61,7 @@ class _CreatePostViewState extends State<CreatePostView> {
                 },
               ),SizedBox(height: 32),
               
-              // ✅ TAMBAHKAN TOMBOL CREATE
+              //   TAMBAHKAN TOMBOL CREATE
               Consumer<PostViewmodels>(
                 builder: (context, viewModel, child) {
                   final response = viewModel.operationResponse;
@@ -83,7 +83,7 @@ class _CreatePostViewState extends State<CreatePostView> {
                   );
                 },
               ),
-              // ✅ TAMBAHKAN FEEDBACK SUCCESS/ERROR
+              //   TAMBAHKAN FEEDBACK SUCCESS/ERROR
               Consumer<PostViewmodels>(
                 builder: (context, viewModel, child) {
                   final response = viewModel.operationResponse;

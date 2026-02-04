@@ -56,7 +56,8 @@ class PostViewmodels extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final post = await _repository.getPostById(id);
+      // final post = await _repository.getPostById(id);
+      // postResponse = post;
     } catch (e) {
       _postResponse = ApiResponse.error(e.toString());
     }

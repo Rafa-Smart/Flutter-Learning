@@ -176,7 +176,8 @@ class _UpdatePostViewState extends State<UpdatePostView> {
 
                   const SizedBox(height: 24),
 
-                  /// NOTE
+                  // NOTE
+                  // NOTE
                   const Text(
                     'Note:',
                     style: TextStyle(fontWeight: FontWeight.bold),

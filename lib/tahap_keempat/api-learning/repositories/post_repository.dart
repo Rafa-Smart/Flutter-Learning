@@ -34,7 +34,7 @@ class PostRepository {
       List<Post> posts = [];
 
       if (response is List) {
-        posts = response.take(20).map((data) => Post.fromJson(data)) .toList();
+        posts = response.take(20).map((data) => Post.fromJson(data)).toList();
       }
       return posts;
     } on ApiException catch (e) {
